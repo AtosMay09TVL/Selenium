@@ -1,0 +1,48 @@
+package drivers;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+
+import io.opentelemetry.exporter.logging.SystemOutLogExporter;
+
+public class Locators1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODOSystem.setProperty("webdriver.gecko.driver", "C:\\Users\\syntel\\Desktop\\selenium_exercisee\\src\\drivers\\geckodriver.exe");
+		try {
+		Weblement(
+				Element
+			return true;
+		}
+		catch(Exception) {
+			System.out.println("invalid password!");
+			return false;
+			String beforeTitle=driver.getTitle();
+			String afterTitle=driver.getTitle();
+			if(beforeTitle.equals(afterTitle));
+			System.out.println("invalid password!!");
+		FirefoxOptions obj=new FirefoxOptions();
+		obj.setBinary("C:\\Users\\syntel\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
+		WebDriver driver=new FirefoxDriver(obj);
+		driver.manage().window().maximize();
+		driver.get("https://github.com/");
+		TimeUnit.SECONDS.sleep(5);
+		login();
+		if(e.getText())
+		driver.findElement(By.linkText("Sign in")).click(); 
+		driver.findElement(By.id("login_field")).sendKeys("saivenkata315@gmail.com");
+		driver.findElement(By.xpath("//*[@id=\"login_field\"]"));
+		driver.findElement(By.id("password")).sendKeys("Venkatasai@1234");
+		driver.findElement(By.xpath("//*[@id=\"password\"]"));
+		driver.findElement(By.xpath("/html/body/div[3]/main/div/div[4]/form/div/input[12]")).click();
+		driver.quit();
+		
+	}
+		
+	}
+
+}
