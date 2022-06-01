@@ -1,0 +1,25 @@
+package fyfy;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Gender {
+	static {
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\91939\\Desktop\\alljars\\chromedriver_win32\\chromedriver.exe");
+	}
+	public static void main(String[] args) {
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.facebook.com/");
+		
+		driver.findElement(By.xpath("//a[text()='Create New Account']")).click();
+		int x1=driver.findElement(By.className("female")).getLocation().getX();
+		int x2=driver.findElement(By.className("Male")).getLocation().getX();
+		int x3=driver.findElement(By.className("Custom")).getLocation().getX();
+		if(x1==x2 && x2==x3) {
+			System.out.println("gender radio buttons are properly aligned");
+		}
+		else
+			System.out.println("gender radio buttons not are properly aligned");
+		}
+		}
