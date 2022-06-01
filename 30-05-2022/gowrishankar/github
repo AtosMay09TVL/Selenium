@@ -1,0 +1,32 @@
+package drivers;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+
+public class locators {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\syntel\\Desktop\\selenium_exercisee\\src\\drivers\\geckodriver.exe");
+		FirefoxOptions obj=new FirefoxOptions();
+		obj.setBinary("C:\\Users\\syntel\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
+		WebDriver driver=new FirefoxDriver(obj);
+		driver.manage().window().maximize();
+		driver.get("https://github.com/");
+		TimeUnit.SECONDS.sleep(5);
+		driver.findElement(By.linkText("Sign in")).click();
+		driver.findElement(By.id("login_field")).sendKeys("gsgowri2526@gmail.com");
+		driver.findElement(By.xpath("//*[@id=\"login_field\"]"));
+		driver.findElement(By.id("password")).sendKeys("gowri");
+		driver.findElement(By.xpath("//*[@id=\"password\"]"));
+		driver.findElement(By.xpath("/html/body/div[3]/main/div/div[4]/form/div/input[12]")).click();
+		
+		
+		
+	}
+
+}
