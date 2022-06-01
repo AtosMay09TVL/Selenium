@@ -1,0 +1,95 @@
+package basic_conept;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.Select;
+
+public class Smartcard {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+System.setProperty("webdriver.gecko.driver","C:\\May-09-TVL-Testing\\Selenium_Training_Exercise\\src\\geckodriver.exe");
+FirefoxOptions opt=new FireFoxOption();
+opt.setBinary("C:\\Users\\syntel\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
+WebDriver driver= new FirefoxDriver(opt);
+driver.manage().window().maximize();
+driver.get("https://tnpds.gov.in/");
+TimeUnit.SECONDS.sleep(2);
+
+driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[1]/div[1]/div/div[2]/table/tbody/tr/td[2]")).click();
+driver.findElement(By.linkText("Apply New Smart Card")).click();
+driver.findElement(By.id("form:aname")).sendKeys("Aiswarya");
+driver.findElement(By.id("form:aname")).submit();
+TimeUnit.SECONDS.sleep(2);
+driver.findElement(By.id("form:fhname")).sendKeys("Ramesh");
+driver.findElement(By.id("form:fhname")).submit();
+TimeUnit.SECONDS.sleep(2);
+
+driver.findElement(By.id("form:address1")).sendKeys("36a pillaiyar");
+driver.findElement(By.id("form:address1")).submit();
+TimeUnit.SECONDS.sleep(2);
+driver.findElement(By.id("form:address2")).sendKeys("36a pillaiyar");
+driver.findElement(By.id("form:address2")).submit();
+TimeUnit.SECONDS.sleep(2);
+driver.findElement(By.id("form:address3")).sendKeys("36a pillaiyar");
+driver.findElement(By.id("form:address3")).submit();
+TimeUnit.SECONDS.sleep(2);
+Select district=new Select(driver.findElement(By.id("form:districts")));
+district.selectByVisibleText("Tirunelveli திருநெல்வேலி");
+TimeUnit.SECONDS.sleep(2);
+Select taluks=new Select(driver.findElement(By.id("form:taluks")));
+taluks.selectByValue("200");
+TimeUnit.SECONDS.sleep(2);
+Select village=new Select(driver.findElement(By.id("form:villages")));
+village.selectByValue("501683");
+TimeUnit.SECONDS.sleep(2);
+driver.findElement(By.id("form:pin")).sendKeys("627358");
+driver.findElement(By.id("form:pin")).submit();
+TimeUnit.SECONDS.sleep(2);
+driver.findElement(By.id("form:mobile")).sendKeys("9360188926");
+driver.findElement(By.id("form:mobile")).submit();
+TimeUnit.SECONDS.sleep(2);
+driver.findElement(By.id("form:stdCode")).sendKeys("0461");
+driver.findElement(By.id("form:stdCode")).submit();
+TimeUnit.SECONDS.sleep(2);
+driver.findElement(By.id("form:landLineNo")).sendKeys("223366");
+driver.findElement(By.id("form:landLineNo")).submit();
+TimeUnit.SECONDS.sleep(2);
+driver.findElement(By.id("form:mail")).sendKeys("srikadalaiswarya@gmail.com");
+driver.findElement(By.id("form:mail")).submit();
+TimeUnit.SECONDS.sleep(2);
+driver.findElement(By.id("form:addfamilymember")).sendKeys("  ");
+driver.findElement(By.id("form:addfamilymember")).submit();
+TimeUnit.SECONDS.sleep(2);
+Select gender=new Select(driver.findElement(By.id("form:pmemgender")));
+gender.selectByValue("Female");
+TimeUnit.SECONDS.sleep(2);
+Select national=new Select(driver.findElement(By.id("form:pmemnationality")));
+national.selectByValue("Indian");
+TimeUnit.SECONDS.sleep(2);
+Select profession=new Select(driver.findElement(By.id("form:pmemprofession")));
+profession.selectByValue("Private");
+TimeUnit.SECONDS.sleep(2);
+driver.findElement(By.id("form:monincome")).sendKeys("30,000");
+driver.findElement(By.id("form:monincome")).submit();
+TimeUnit.SECONDS.sleep(2);
+driver.findElement(By.id("form:elecidnum")).sendKeys("ASD1234567");
+driver.findElement(By.id("form:elecidnum")).submit();
+TimeUnit.SECONDS.sleep(2);
+Select category=new Select(driver.findElement(By.id("form:disabledPersionCategoryId")));
+category.selectByValue("Fingers");
+TimeUnit.SECONDS.sleep(2);
+
+
+
+
+
+}
+
+}
+
