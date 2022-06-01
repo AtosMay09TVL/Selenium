@@ -1,0 +1,57 @@
+package tamilNaduWebsite;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.Select;
+
+public class TamilNadu {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver", "D:\\lib\\SeliniumProject\\src\\Driver\\geckodriver.exe");
+		FirefoxOptions otp= new FirefoxOptions();
+		otp.setBinary("C:\\Users\\syntel\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
+		WebDriver driver= new FirefoxDriver(otp);
+		driver.get("https://tnpds.gov.in");
+		driver.manage().window().maximize();
+		driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[1]/div[1]/div/div[2]/table/tbody/tr/td[2]")).click();
+		TimeUnit.SECONDS.sleep(5);
+		driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[2]/div[2]/div/div/div[2]/ul[1]/li[2]/a/span")).click();
+		driver.findElement(By.id("form:aname")).click();
+		driver.findElement(By.id("form:aname")).sendKeys("selva");
+		driver.findElement(By.id("form:aname")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:fhname")).sendKeys("selvasda");
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:address1")).sendKeys("seaselva");
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:address2")).sendKeys("selvasda");
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:address3")).sendKeys("selasdva");
+		Select district= new Select(driver.findElement(By.id("form:districts")));
+		district.selectByVisibleText("Tirunelveli திருநெல்வேலி");
+		TimeUnit.SECONDS.sleep(2);
+		Select Taluk= new Select(driver.findElement(By.id("form:taluks")));
+		Taluk.selectByVisibleText("Tirunelveli (Z) திருநெல்வேலி (ம)");
+		TimeUnit.SECONDS.sleep(2);
+		Select Village= new Select(driver.findElement(By.id("form:villages")));
+		Village.selectByVisibleText("Thirunelveli திருநெல்வேலி");
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:pin")).sendKeys("627001");
+		driver.findElement(By.id("form:mobile")).sendKeys("9952196744");
+		driver.findElement(By.id("form:uploadimageUpload")).click();
+//		WebElement chooseFile = driver.findElement(By.id("form:uploadimageUpload"));
+		//driver.findElement(By.id("form:uploadimageUpload")).sendKeys("C:\\Users\\syntel\\Downloads\\selva.png");
+		
+		
+		
+		
+
+	}
+
+}
