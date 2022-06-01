@@ -1,0 +1,67 @@
+/**
+ * 
+ */
+package Smart;
+
+import java.util.concurrent.TimeUnit;
+
+import org.asynchttpclient.request.body.generator.ByteArrayBodyGenerator;
+import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByName;
+import org.openqa.selenium.By.ByTagName;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.ISelect;
+import org.openqa.selenium.support.ui.Select;
+
+/**
+ * @author syntel
+ *
+ */
+public class Applyingsmartcard {
+
+	/**
+	 * @param args
+	 * @throws InterruptedException 
+	 */
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\syntel\\eclipse-workspace\\majid\\Seleniumproject\\drivers\\geckodriver.exe");
+        FirefoxOptions a=new FirefoxOptions();
+        a.setBinary("C:\\Users\\syntel\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
+        WebDriver driver = new FirefoxDriver(a);
+        driver.manage().window().maximize();
+        driver.get("https://tnpds.gov.in/home.xhtml");
+        TimeUnit.SECONDS.sleep(3);
+        driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[1]/div[1]/div/div[2]/table/tbody/tr/td[2]/label")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[2]/div[2]/div/div/div[2]/ul[1]/li[2]/a")).click();
+        driver.findElement(By.id("form:aname")).sendKeys("Dhanunjay");
+        Thread.sleep(3000);
+        driver.findElement(By.id("form:aname")).submit();
+        TimeUnit.SECONDS.sleep(5);
+        driver.findElement(By.id("form:fhname")).sendKeys("Narla");
+        driver.findElement(By.id("form:address1")).sendKeys("nalgonda telangana");
+        driver.findElement(By.id("form:address2")).sendKeys("telangana");
+        driver.findElement(By.id("form:address3")).sendKeys("india_508201");
+       // driver.findElement(By.id("form:pin")).sendKeys("508241");
+       // driver.findElement(By.id("id=\"form:mobile\"")).sendKeys("7287888928");
+       Thread.sleep(3000);
+        driver.findElement(By.xpath("//*[@id=\\\"form:lfhname_input\\")).sendKeys("dhanu");
+       driver.findElement(By.xpath("form:laname_input")).submit();
+        driver.findElement(By.xpath("//*[@id=\\\"form:laddress1_input\\\"")).sendKeys("narla");
+        driver.findElement(By.id("form:landLineNo")).sendKeys("//*[@id=\"form:landLineNo\"]");
+        Select district =new Select(driver.findElement(By.name("tirunvelvi")));
+        driver.findElement(By.id("//*[@id=\"form:districts\"]")).click();
+        
+        
+        
+         
+        
+       
+	}
+
+	
+
+}
