@@ -1,0 +1,32 @@
+package locators;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class github {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+       System.setProperty("webdriver.chrome.driver", "C:\\May-09-TVL-Testing\\Selenium_Training_Exercise\\src\\chromedriver.exe");
+       WebDriver driver=new ChromeDriver();
+       driver.manage().window().maximize();
+       driver.get("https://github.com");
+       TimeUnit.SECONDS.sleep(5);
+       driver.findElement(By.xpath("/html/body/div[1]/header/div/div[2]/div[2]/a")).click();
+       TimeUnit.SECONDS.sleep(5);
+       driver.findElement(By.id("email")).sendKeys("srikadalaiswarya@gmail.com");
+       TimeUnit.SECONDS.sleep(5);
+       driver.findElement(By.xpath("//*[@id=\"email-container\"]/div[2]/button")).click();
+       TimeUnit.SECONDS.sleep(5);
+       driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("12rhujjguk");
+       TimeUnit.SECONDS.sleep(5);
+       driver.findElement(By.xpath("//*[@id=\"password-container\"]/div[2]/button")).click();
+       TimeUnit.SECONDS.sleep(5);
+       
+       driver.quit();
+	}     	
+
+}
