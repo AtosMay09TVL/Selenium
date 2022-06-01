@@ -1,0 +1,93 @@
+package org.com.atos;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Day2 {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\syntel\\eclipse-workspace\\Seln-one\\driver\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://tnpds.gov.in");
+		driver.manage().window().maximize();
+		  
+		driver.findElement(By.xpath("//*[@id=\"masterForm:languageSelectMenu\"]/tbody/tr/td[2]")).click();
+		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/ul[1]/li[2]/a")).click();
+		driver.findElement(By.id("form:aname")).sendKeys("Johh Jebas"); 
+		driver.findElement(By.id("form:aname")).submit();   
+		driver.findElement(By.id("form:fhname")).sendKeys("Rin"); 
+		driver.findElement(By.id("form:fhname")).submit();   
+		driver.findElement(By.id("form:laname_input")).sendKeys("ragnar"); 
+		driver.findElement(By.id("form:laname_input")).submit();   
+		driver.findElement(By.id("form:lfhname_input")).sendKeys("johklh"); 
+		driver.findElement(By.id("form:lfhname_input")).submit(); 
+		driver.findElement(By.id("form:address1")).sendKeys("southstreet");
+		driver.findElement(By.id("form:address1")).submit();
+		driver.findElement(By.id("form:address2")).sendKeys("northstreet");
+		driver.findElement(By.id("form:address2")).submit();
+		driver.findElement(By.id("form:address3")).sendKeys("eaststreet");  
+		driver.findElement(By.id("form:address3")).submit();
+		Select s= new Select(driver.findElement(By.id("form:districts")));
+		s.selectByVisibleText("Tirunelveli திருநெல்வேலி");
+		TimeUnit.SECONDS.sleep(4);
+		Select tal = new Select(driver.findElement(By.id("form:taluks")));      
+		tal.selectByValue("208");
+		TimeUnit.SECONDS.sleep(4);
+		Select vill = new Select(driver.findElement(By.id("form:villages")));
+		vill.selectByIndex(23);
+		driver.findElement(By.id("form:pin")).sendKeys("627130"); 
+		driver.findElement(By.id("form:pin")).submit();    
+		driver.findElement(By.id("form:mobile")).sendKeys("749980796576"); 
+		driver.findElement(By.id("form:mobile")).submit();   
+		driver.findElement(By.id("form:stdCode")).sendKeys("67"); 
+		driver.findElement(By.id("form:stdCode")).submit();   
+		driver.findElement(By.id("form:landLineNo")).sendKeys("44444444576"); 
+		driver.findElement(By.id("form:landLineNo")).submit();   
+		driver.findElement(By.id("form:addfamilymember")).click();
+		TimeUnit.SECONDS.sleep(3);
+		driver.findElement(By.id("form:pmemdob_input")).click();
+		TimeUnit.SECONDS.sleep(3);
+		WebElement dateWidget = driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]")); 
+		List<WebElement> columns=dateWidget.findElements(By.tagName("td"));
+
+		for (WebElement cell: columns){                                                                              
+		   //Select 13th Date 
+		   if (cell.getText().equals("13")){
+		      cell.findElement(By.linkText("13")).click();
+		      break;
+		 }		
+		                                                                                                                                                      
+		}
+		TimeUnit.SECONDS.sleep(4);
+		Select gender = new Select(driver.findElement(By.id("form:pmemgender")));
+		gender.selectByVisibleText("Male ");
+		TimeUnit.SECONDS.sleep(4);
+		Select ntn = new Select(driver.findElement(By.id("form:pmemnationality")));
+		ntn.selectByValue("Indian");
+		TimeUnit.SECONDS.sleep(5);
+		Select prfsn = new Select(driver.findElement(By.id("form:pmemprofession")));
+		prfsn.selectByValue("Government");
+		driver.findElement(By.id("form:monincome")).sendKeys("48000000"); 
+		driver.findElement(By.id("form:monincome")).submit(); 
+		driver.findElement(By.id("form:elecidnum")).sendKeys("123458"); 
+		driver.findElement(By.id("form:monincome")).submit(); 
+		TimeUnit.SECONDS.sleep(4);
+		Select prfsn222 = new Select(driver.findElement(By.id("form:supportDocumentSelectId")));
+		prfsn222.selectByValue("AADHAAR_CARD");
+		driver.findElement(By.id("form:upsupdocid")).click();
+		
+		
+		
+		
+
+	}
+
+}
