@@ -1,0 +1,30 @@
+package locators;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class Outlook {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\syntel\\eclipse-workspace\\Selenium_project\\src\\seleniumdrivers\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		//driver.manage().window().minimize();
+		driver.get("https://github.com/login");
+		TimeUnit.SECONDS.sleep(5);
+		driver.findElement(By.id("login_field")).click();
+		driver.findElement(By.id("login_field")).sendKeys("supriyaramajeyam@gmail.com.com");
+		driver.findElement(By.id("password")).sendKeys("jsoi14jgof"); 
+		driver.findElement(By.name("commit")).click();
+		TimeUnit.SECONDS.sleep(10);
+		//driver.findElement(By.xpath("/html/body/div[5]/div/div/div/div/div/main/div[1]/article[3]/div/section/div[1]/a/div")).click();
+		driver.findElement(By.xpath("/html/body/div[1]/header/div[7]/details/summary/img")).click();
+		TimeUnit.SECONDS.sleep(3);
+		driver.findElement(By.xpath("/html/body/div[1]/header/div[7]/details/details-menu/form/button")).click();
+	}
+
+}
