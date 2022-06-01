@@ -1,0 +1,91 @@
+/**
+ * 
+ */
+package drivers;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.Select;
+
+/**
+ * @author syntel
+ *
+ */
+public class Applynewsmartcard {
+
+	/**
+	 * @param args
+	 * @throws InterruptedException 
+	 */
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\syntel\\eclipse-workspace\\Selenium_exercises\\src\\drivers\\geckodriver.exe");
+		  FirefoxOptions obt = new FirefoxOptions();
+		  obt.setBinary("C:\\Users\\syntel\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
+		WebDriver driver=new FirefoxDriver(obt);
+		driver.manage().window().maximize();
+		driver.get("https://tnpds.gov.in/home.xhtml");
+		TimeUnit.SECONDS.sleep(3);
+		driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[1]/div[1]/div/div[2]/table/tbody/tr/td[2]/label")).click();
+		driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[2]/div[2]/div/div/div[2]/ul[1]/li[2]/a")).click();
+		driver.findElement(By.id("form:aname")).sendKeys("ABDUL MAJID");
+		driver.findElement(By.id("form:aname")).submit();
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:fhname")).sendKeys("KARTHIKSELVAM");
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:address1")).sendKeys("2/15-ABDUL MAJID NAGAR");
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:address2")).sendKeys("PERIYANAAYAKKANPAALAYAM");
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:address3")).sendKeys("COIMBATORE");
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:laname_input")).sendKeys("abdul majid");
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.xpath("/html/body/span[1]/ul/li")).click();
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:lfhname_input")).sendKeys("karthikselvam");
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.xpath("/html/body/span[2]/ul/li")).click();
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:laddress1_input")).sendKeys("2/15-abdul majid nagar");
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.xpath("/html/body/span[3]/ul/li")).click();
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:laddress2_input")).sendKeys("peryanaayakkanpaalayam");
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.xpath("/html/body/span[4]/ul/li[2]")).click();
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:laddress3_input")).sendKeys("coimbatore");
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.xpath("/html/body/span[5]/ul/li[1]")).click();
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.xpath("//*[@id=\"form:address3\"]")).click();
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:districts")).click();
+		driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[2]/div[1]/div/div/div/div[3]/div/div[2]/div[6]/div/div[1]/div[1]/div/div/select/option[4]")).click();
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:taluks")).click();
+		driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[2]/div[1]/div/div/div/div[3]/div/div[2]/div[6]/div/div[1]/div[2]/div/div/div/select/option[4]")).click();
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:villages")).click();
+		driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[2]/div[1]/div/div/div/div[3]/div/div[2]/div[6]/div/div[1]/div[3]/div/div/select/option[10]")).click();
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:pin")).sendKeys("641020");
+		driver.findElement(By.id("form:mobile")).sendKeys("9994670123");
+		TimeUnit.SECONDS.sleep(3);
+		driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[2]/div[1]/div/div/div/div[3]/div/h4/button/span")).click();
+		TimeUnit.SECONDS.sleep(5);
+		driver.findElement(By.id("form:pmemdob_input")).click();
+		TimeUnit.SECONDS.sleep(3);
+		driver.findElement(By.id("/html/body/div[4]/div/div/select[2]")).click();
+		Select year=new Select(driver.findElement(By.xpath("/html/body/div[4]/div/div/select[2]")));
+		year.selectByValue("1999");
+		
+		
+	}
+
+}
