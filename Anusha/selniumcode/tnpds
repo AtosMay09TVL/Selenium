@@ -1,0 +1,84 @@
+package govt1;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class SmartCard {
+	static WebDriver driver;
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.edge.driver", "D:\\eclipse-workspace\\SeleniumProject\\src\\webdrivers\\msedgedriver.exe");
+		driver=new EdgeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://tnpds.gov.in");
+		TimeUnit.SECONDS.sleep(5);
+		driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[1]/div[1]/div/div[2]/table/tbody/tr/td[2]/label")).click();
+		driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[2]/div[2]/div/div/div[2]/ul[1]/li[2]/a")).click();
+		Select mm=new Select(driver.findElement(By.id("form:j_idt153")));
+		mm.selectByIndex(2);
+		TimeUnit.SECONDS.sleep(2);
+		
+		driver.findElement(By.id("form:aname")).sendKeys("anusha");
+		driver.findElement(By.id("form:aname")).click();
+		TimeUnit.SECONDS.sleep(3);
+		
+		driver.findElement(By.id("form:fhname")).sendKeys("radha");
+		driver.findElement(By.id("form:fhname")).click();
+		TimeUnit.SECONDS.sleep(3);
+		
+		driver.findElement(By.id("form:address1")).sendKeys("17,mm nagar,ngo colony");
+		driver.findElement(By.id("form:address1")).click();
+		TimeUnit.SECONDS.sleep(3);
+		
+		Select dist=new Select(driver.findElement(By.id("form:districts")));
+		dist.selectByVisibleText("Tirunelveli திருநெல்வேலி");
+		TimeUnit.SECONDS.sleep(4);
+		
+		Select taluk=new Select(driver.findElement(By.id("form:taluks")));
+		taluk.selectByValue("201");
+		TimeUnit.SECONDS.sleep(3);
+		
+		Select vil=new Select(driver.findElement(By.id("form:villages")));
+		vil.selectByIndex(18);
+		TimeUnit.SECONDS.sleep(3);
+		driver.findElement(By.id("form:pin")).sendKeys("627007");
+		TimeUnit.SECONDS.sleep(3);
+		
+		driver.findElement(By.id("form:mobile")).sendKeys("9876543210");
+		driver.findElement(By.id("form:mobile")).click();
+		TimeUnit.SECONDS.sleep(3);
+		
+			
+		driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[2]/div[1]/div/div/div/div[3]/div/h4/button/span")).click();
+		//driver.findElement(By.xpath("//*[@id=\"form:pmemdob_input\"]")).click();
+		//TimeUnit.SECONDS.sleep(3);
+		
+		driver.findElement(By.id("form:pmemdob_input")).click();
+		TimeUnit.SECONDS.sleep(5);
+	
+	//	Select birm=new Select(driver.findElement(By.xpath("/html/body/div[4]/div/div/select[1]")));
+	//	birm.selectByValue("1");
+	//	Select biry=new Select(driver.findElement(By.xpath("/html/body/div[4]/div/div/select[2]")));
+	//	biry.selectByValue("1997");
+	//	driver.findElement(By.xpath("/html/body/div[4]/table/tbody/tr[4]/td[5]/a")).click();
+		
+		Select card=new Select(driver.findElement(By.id("form:cardtype")));
+		card.selectByValue("2");
+		TimeUnit.SECONDS.sleep(3);
+		
+		
+		driver.findElement(By.id("form:myCheckbox")).click();
+		TimeUnit.SECONDS.sleep(3);
+		driver.close();
+		
+		
+		
+		
+	}
+
+}
