@@ -1,0 +1,139 @@
+package examples;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Smart_Card {
+	static WebDriver driver;
+	static WebDriverWait wait;
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver", "C:\\May-09-TVl-Java-Examples\\Selenium_Training_Exercise\\src\\basic_Commends\\drivers\\geckodriver.exe");
+		FirefoxOptions opt=new FirefoxOptions();
+		opt.setBinary("C:\\Users\\syntel\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
+		driver=new FirefoxDriver(opt);
+		driver.manage().window().maximize();
+		driver.get("https://tnpds.gov.in/");
+		TimeUnit.SECONDS.sleep(3);
+		driver.findElement(By.xpath("//*[@id=\"masterForm:languageSelectMenu\"]/tbody/tr/td[2]")).click();
+		driver.findElement(By.linkText("Apply New Smart Card")).click();
+//		driver.findElement(By.linkText("form:uploadimageUpload_label")).click();
+//		WebElement upload=driver.findElement(By.id("form:uploadimageUpload_label"));
+//		upload.sendKeys("C:\\Users\\syntel\\Pictures\\pexels-anjana-c-674010.jpg");
+		driver.findElement(By.id("form:aname")).sendKeys("Vishwa");
+		driver.findElement(By.id("form:aname")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:fhname")).sendKeys("Lohidakshan");
+		driver.findElement(By.id("form:fhname")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:address1")).sendKeys("LIG-572");
+		driver.findElement(By.id("form:address1")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:address2")).sendKeys("New ASTC HUDCO");
+		driver.findElement(By.id("form:address2")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:address3")).sendKeys("HOSUR");
+		driver.findElement(By.id("form:address3")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		Select dis=new Select(driver.findElement(By.id("form:districts")));
+		dis.selectByVisibleText("Krishnagiri கிருஷ்ணகிரி");
+		TimeUnit.SECONDS.sleep(1);
+		Select tal=new Select(driver.findElement(By.id("form:taluks")));
+		tal.selectByVisibleText("Hosur (Tk) ஓசூர் (வ)");
+		TimeUnit.SECONDS.sleep(1);
+		Select vil=new Select(driver.findElement(By.id("form:villages")));
+		vil.selectByVisibleText("Hosur ஓசூர்");
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:pin")).sendKeys("635109");
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:mobile")).sendKeys("9629703580");
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:mail")).sendKeys("vishwatl67@gmail.com");
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:addfamilymember")).click();
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:mname"));
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:pmemdob_input")).click();
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:mlname_input")).sendKeys("விஷ்வா");
+		selectOptionWithText("விஷ்வா");
+		TimeUnit.SECONDS.sleep(2);
+		Select year=new Select(driver.findElement(By.xpath("/html/body/div[4]/div/div/select[2]")));
+		year.selectByValue("2000");
+		Select month=new Select(driver.findElement(By.xpath("/html/body/div[4]/div/div/select[1]")));
+		month.selectByValue("6");
+		driver.findElement(By.xpath("/html/body/div[4]/table/tbody/tr[4]/td[2]/a")).click();
+		TimeUnit.SECONDS.sleep(2);
+		Select gen=new Select(driver.findElement(By.id("form:pmemgender")));
+		gen.selectByValue("Male");
+		TimeUnit.SECONDS.sleep(2);
+		Select nation=new Select(driver.findElement(By.id("form:pmemnationality")));
+		nation.selectByValue("Indian");
+		TimeUnit.SECONDS.sleep(2);
+		Select prof=new Select(driver.findElement(By.id("form:pmemprofession")));
+		prof.selectByValue("Private");
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:monincome")).sendKeys("15000");
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:elecidnum")).sendKeys("RCP1234025");
+		TimeUnit.SECONDS.sleep(1);
+		Select aadhar=new Select(driver.findElement(By.id("form:supportDocumentSelectId")));
+		aadhar.selectByValue("AADHAAR_CARD");
+		TimeUnit.SECONDS.sleep(1);
+//		driver.findElement(By.id("form:upsupdocid")).click();
+//		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:aadhaar1")).sendKeys("5216");
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:aadhaar2")).sendKeys("1542");
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:aadhaar3")).sendKeys("9842");
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("form:j_idt479")).click();
+		TimeUnit.SECONDS.sleep(1);
+		Select card=new Select(driver.findElement(By.id("form:cardtype")));
+		card.selectByValue("3");
+		TimeUnit.SECONDS.sleep(1);
+		Select resiproof=new Select(driver.findElement(By.id("form:residenceproof")));
+		resiproof.selectByValue("AADHAAR_CARD");
+		TimeUnit.SECONDS.sleep(5);
+		driver.quit();
+	}
+	
+	private static WebElement findElement(By id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static void selectOptionWithText(String textToSelect) {
+		try {
+			WebElement autoOptions = driver.findElement(By.xpath("//*[@id=\"form:mlname_input\"]"));
+			wait.until(ExpectedConditions.visibilityOf(autoOptions));
+
+			List<WebElement> optionsToSelect = autoOptions.findElements(By.tagName("li"));
+			for(WebElement option : optionsToSelect){
+		        if(option.getText().equals(textToSelect)) {
+		        	System.out.println("Trying to select: "+textToSelect);
+		            option.click();
+		            break;
+		        }
+		    }
+			
+		} catch (NoSuchElementException e) {
+			System.out.println(e.getStackTrace());
+		}
+		catch (Exception e) {
+			System.out.println(e.getStackTrace());
+		}
+	}
+}
