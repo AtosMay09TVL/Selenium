@@ -1,0 +1,34 @@
+package basic;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver.Timeouts;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Automation {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.getProperty("webdriver.geckodriver.driver",("D:\\Selenium_Practicals\\Selenium_Excercises\\src\\drivers\\geckodriver.exe"));
+		
+		WebDriver driver = new FirefoxDriver();
+		driver.get("https://www.amazon.in");
+		TimeUnit.SECONDS.sleep(5);
+		driver.findElement(By.xpath("/html/body/div[1]/header/div/div[1]/div[3]/div/a[2]/span")).click();
+	
+		TimeUnit.SECONDS.sleep(5);
+		driver.findElement(By.id("createAccountSubmit")).click();
+		TimeUnit.SECONDS.sleep(5);
+		driver.findElement(By.id("ap_customer_name")).sendKeys("jekka jayaprakash");
+		
+		TimeUnit.SECONDS.sleep(2);
+		
+		driver.findElement(By.id("ap_email")).sendKeys("prakashroyal84@gmail.com");
+		driver.findElement(By.id("ap_password")).sendKeys("Prakash.@845");
+		TimeUnit.SECONDS.sleep(1);
+		driver.findElement(By.id("continue")).click();
+		driver.findElement(By.xpath("//*[@id=\"ap_password_check\"]")).click();
+				
+		
+		
