@@ -1,0 +1,33 @@
+package drivers;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+
+public class Webdrivers {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	//lunch the firefox browser
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\syntel\\Desktop\\selenium_exercisee\\src\\drivers\\geckodriver.exe");
+		FirefoxOptions obj=new FirefoxOptions();
+		obj.setBinary("C:\\Users\\syntel\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
+		WebDriver driver=new FirefoxDriver(obj);
+	     driver.get ("https://www.google.com/search?client=firefox-b-d&q=redbus");
+	    String url="https://www.redbus.in";
+	    driver.get(url);
+	    String purl="https://www.redbus.in/Home/PrintTicket";
+	    driver.get(purl);
+		
+
+	}
+
+	
+	}
+
+	 
+		
+	
+
+
