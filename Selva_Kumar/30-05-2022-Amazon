@@ -1,0 +1,54 @@
+package basic_commands;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public abstract class AmazonTest {
+
+	public static void main(String[] args) throws InterruptedException
+	
+			{
+		 		//Launch the Firefox Browser
+				System.setProperty("webdriver.chrome.driver","C:\\Users\\syntel\\eclipse-workspace\\Selenium_Training_Excersises\\src\\basic_commands\\Drivers\\chromedriver.exe");
+				WebDriver driver=new ChromeDriver();
+				//Open the URL "https://www.amazon.in/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.in%2F%3Fref_%3Dnav_ya_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=inflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&"
+				String Url="https://www.amazon.in/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.in%2F%3Fref_%3Dnav_ya_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=inflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&";
+				driver.get(Url);
+				//Get the Page Title
+				String title=driver.getTitle();
+				System.out.println("Title is \" "+title +"\"");
+				
+				//Get the length of the Title
+				System.out.println("Title size is "+title.length());
+				
+				
+				//Enter the Mobile Number
+				driver.findElement(By.id("ap_email")).sendKeys("9600920179");
+				TimeUnit.SECONDS.sleep(3);
+				
+				//Click to Continue
+				driver.findElement(By.id("continue")).submit();
+				TimeUnit.SECONDS.sleep(3);
+				//Click OTP menu
+				driver.findElement(By.id("a-button-input")).click();
+				//Enter the password
+				driver.findElement(By.id("ap_password")).sendKeys("abcd1234");
+				TimeUnit.SECONDS.sleep(3);
+				//Click to SignIn
+				driver.findElement(By.id("signInSubmit")).submit();
+				//driver.quit();
+				
+				
+				TimeUnit.SECONDS.sleep(3);
+				driver.findElement(By.id("ap_email")).sendKeys("9600920179");
+				
+			}
+
+
+
+
+}
