@@ -1,0 +1,96 @@
+/**
+ * 
+ */
+package example;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.Select;
+
+public class Smartcard1 {
+
+
+	public static void main(String[] args) throws InterruptedException, IOException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver","C:\\May-09-TVL-Testing\\Examples\\Selenium_Training_Exercise\\src\\Drivers\\geckodriver.exe");
+		FirefoxOptions opt=new FirefoxOptions();
+		opt.setBinary("C:\\Users\\syntel\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
+		WebDriver driver=new FirefoxDriver(opt);
+		driver.manage().window().maximize();
+		driver.get("https://tnpds.gov.in");
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[1]/div[1]/div/div[2]/table/tbody/tr/td[2]")).click();
+		driver.findElement(By.linkText("Apply New Smart Card")).click();
+		driver.findElement(By.id("form:aname")).sendKeys("Vishwa");
+		driver.findElement(By.id("form:aname")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:fhname")).sendKeys("Linga");
+		driver.findElement(By.id("form:aname")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:address1")).sendKeys("3/551");
+		driver.findElement(By.id("form:address1")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:address2")).sendKeys("North cotton Street");
+		driver.findElement(By.id("form:address2")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:address3")).sendKeys("Tuticorin");
+		driver.findElement(By.id("form:address3")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		Select district= new Select(driver.findElement(By.id("form:districts")));
+		district.selectByVisibleText("Tuticorin தூத்துக்குடி");
+		TimeUnit.SECONDS.sleep(2);
+		Select taluk= new Select(driver.findElement(By.id("form:taluks")));
+		taluk.selectByValue("192");
+		TimeUnit.SECONDS.sleep(2);
+	    Select village= new Select(driver.findElement(By.id("form:villages")));
+	    village.selectByValue("505737");
+	    TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:pin")).sendKeys("628002");
+		driver.findElement(By.id("form:pin")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:mobile")).sendKeys("9361120612");
+		driver.findElement(By.id("form:mobile")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:stdCode")).sendKeys("0461");
+		driver.findElement(By.id("form:stdCode")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:landLineNo")).sendKeys("238603");
+		driver.findElement(By.id("form:landLineNo")).submit();
+		TimeUnit.SECONDS.sleep(2);
+    	driver.findElement(By.id("form:mail")).sendKeys("princeprabhakar2mg@gmail.com");
+    	driver.findElement(By.id("form:mail")).submit();
+		TimeUnit.SECONDS.sleep(2);
+    	driver.findElement(By.id("form:addfamilymember")).sendKeys(" ");
+		driver.findElement(By.id("form:addfamilymember")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:pmemnationality")).sendKeys("Indian");
+		driver.findElement(By.id("form:pmemnationality")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:mlname")).sendKeys("விஷ்வ");
+		driver.findElement(By.id("form:mlname")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:pmemgender")).sendKeys("MALE");
+		driver.findElement(By.id("form:pmemgender")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:pmemprofession")).sendKeys("private");
+		driver.findElement(By.id("form:pmemprofession")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:elecidnum")).sendKeys("PCY8690732");
+		driver.findElement(By.id("form:elecidnum")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:disabledPersionCategoryId")).sendKeys("");
+		driver.findElement(By.id("form:disabledPersionCategoryId")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:monincome")).sendKeys("30,000");
+		driver.findElement(By.id("form:monincome")).submit();
+		TimeUnit.SECONDS.sleep(2);
+		driver.findElement(By.id("form:uploadimageUpload")).click();
+		TimeUnit.SECONDS.sleep(5);
+	    Runtime.getRuntime().exec("C:\\May-09-TVL-Testing\\Examples\\Selenium_Training_Exercise\\src\\Drivers\\upload.exe");
+		TimeUnit.SECONDS.sleep(5);
