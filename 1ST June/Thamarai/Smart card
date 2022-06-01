@@ -1,0 +1,56 @@
+package Examples;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.Select;
+public class Smart_card {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.edge.driver","C:\\Users\\syntel\\eclipse-workspace\\SeliniumAutomation\\src\\driver\\msedgedriver.exe");
+		//FirefoxOptions opt=new FirefoxOptions();
+		//opt.setBinary("‪‪C:\\Users\\syntel\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
+		WebDriver driver=new EdgeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://tnpds.gov.in/");
+		TimeUnit.SECONDS.sleep(10);
+		driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[1]/div[1]/div/div[2]/table/tbody/tr/td[2]/label"));
+		driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[2]/div[2]/div/div/div[2]/ul[1]/li[2]/a")).click();
+		driver.findElement(By.id("form:hname")).sendKeys("thamarai");
+		driver.findElement(By.id("form:hname")).click();
+		TimeUnit.SECONDS.sleep(5);
+		Select dist=new Select(driver.findElement(By.id("form:districts")));
+		dist.selectByVisibleText("Tirunelveli திருநெல்வேலி");
+		TimeUnit.SECONDS.sleep(5);
+		driver.findElement(By.id("form:address1")).sendKeys("272,papanasam");
+		driver.findElement(By.id("form:address")).click();
+		TimeUnit.SECONDS.sleep(5);
+		driver.findElement(By.id("form:email")).sendKeys("thamaraiselvan0806@gmail.com");
+		driver.findElement(By.id("form:email")).click();
+		TimeUnit.SECONDS.sleep(5);
+		Select taluk=new Select(driver.findElement(By.id("form:taluk")));
+		taluk.selectByValue("201");
+	    TimeUnit.SECONDS.sleep(5);
+	    Select village=new Select(driver.findElement(By.id("form:village")));
+		village.selectByValue("18");
+	    TimeUnit.SECONDS.sleep(5);
+	    driver.findElement(By.id("from:pin")).sendKeys("627425");
+	    TimeUnit.SECONDS.sleep(5);
+	    driver.findElement(By.id("from:mobile")).sendKeys("9698765990");
+	    driver.findElement(By.id("from:mobile")).click();
+	    TimeUnit.SECONDS.sleep(5);
+	    //driver.findElement(By.xpath("")
+	    
+	    
+	
+		
+		
+		
+		
+		}
+}
