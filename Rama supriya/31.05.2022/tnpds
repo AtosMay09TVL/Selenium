@@ -1,0 +1,81 @@
+package newone;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.Select;
+
+public class smartcard {
+static WebDriver driver;
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver", "D:\\Users\\syntel\\eclipse-workspace\\Selinium_Training_Excercises\\src\\basiccommands\\Driver\\Driver\\geckodriver.exe");
+        FirefoxOptions opt=new FirefoxOptions();
+        opt.setBinary("C:\\Users\\syntel\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
+        driver=new FirefoxDriver(opt);
+        driver.manage().window().maximize();
+        driver.get("https://tnpds.gov.in");
+        TimeUnit.SECONDS.sleep(5);
+        driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[1]/div[1]/div/div[2]/table/tbody/tr/td[2]")).click();
+        TimeUnit.SECONDS.sleep(5);
+        driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[2]/div[2]/div/div/div[2]/ul[1]/li[2]/a")).click();
+        TimeUnit.SECONDS.sleep(5);
+        
+        driver.findElement(By.id("form:aname")).sendKeys("xyz");
+        TimeUnit.SECONDS.sleep(5);
+        driver.findElement(By.id("form:aname")).submit();
+        TimeUnit.SECONDS.sleep(5);
+        driver.findElement(By.id("form:fhname")).sendKeys("axyz");
+        TimeUnit.SECONDS.sleep(5);
+        driver.findElement(By.id("form:fhname")).submit();
+        TimeUnit.SECONDS.sleep(3);
+        driver.findElement(By.id("form:address1")).sendKeys("257");
+        TimeUnit.SECONDS.sleep(3);
+        driver.findElement(By.id("form:address1")).submit();
+        TimeUnit.SECONDS.sleep(3);
+        driver.findElement(By.id("form:address2")).sendKeys("jdguehj");
+        driver.findElement(By.id("form:address2")).submit();
+        TimeUnit.SECONDS.sleep(3);
+        driver.findElement(By.id("form:address3")).sendKeys("gshuwu");
+        driver.findElement(By.id("form:address3")).submit();
+        driver.findElement(By.id("form:laname_input")).sendKeys("supriya");
+        driver.findElement(By.id("form:laname_input")).submit();
+        TimeUnit.SECONDS.sleep(3);
+        
+        Select district=new Select(driver.findElement(By.id("form:districts")));
+        district.selectByIndex(10);
+        TimeUnit.SECONDS.sleep(3);
+        Select taluk=new Select(driver.findElement(By.id("form:taluks")));
+        taluk.selectByIndex(5);
+        TimeUnit.SECONDS.sleep(3);
+        Select village=new Select(driver.findElement(By.id("form:villages")));
+        village.selectByIndex(10);
+        TimeUnit.SECONDS.sleep(3);
+        driver.findElement(By.id("form:pin")).sendKeys("600257");
+        driver.findElement(By.id("form:pin")).submit();
+        TimeUnit.SECONDS.sleep(3);
+        driver.findElement(By.id("form:mobile")).sendKeys("8278299677");
+        driver.findElement(By.id("form:mobile")).submit();
+        TimeUnit.SECONDS.sleep(3);
+        driver.findElement(By.id("form:stdCode")).sendKeys("826745");
+        driver.findElement(By.id("form:stdCode")).submit();
+        TimeUnit.SECONDS.sleep(3);
+        driver.findElement(By.id("form:landLineNo")).sendKeys("8299677");
+        driver.findElement(By.id("form:landLineNo")).submit();
+        TimeUnit.SECONDS.sleep(3);
+        driver.findElement(By.id("form:mail")).sendKeys("hshusijju@gmail.com");
+        driver.findElement(By.id("form:mail")).submit();
+        TimeUnit.SECONDS.sleep(3);
+        driver.findElement(By.id("form:addfamilymember")).click();
+        TimeUnit.SECONDS.sleep(3); 
+        driver.findElement(By.id("form:pmemdob_input")).click();
+        
+        
+        }
+
+}
