@@ -1,0 +1,44 @@
+package card;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class New {
+	static WebDriver driver;
+	public static void main(String[]args) throws InterruptedException {
+		System.setProperty("webdriver.edge.driver","C:\\Users\\syntel\\eclipse-workspace\\card\\src\\card\\DRIVER\\msedgedriver.exe");
+		driver=new EdgeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://tnpds.gov.in");
+		TimeUnit.SECONDS.sleep(5);
+		driver.findElement(By.xpath("//*[@id=\"details-button\"]"));
+		driver.findElement(By.xpath("//*[@id=\"proceed-link\"]"));
+		driver.findElement(By.id(""));
+		driver.findElement(By.id("")).click();
+		TimeUnit.SECONDS.sleep(5);
+		driver.findElement(By.id("form:fhname")).sendKeys("Durgadevi");
+		driver.findElement(By.id("form.fhname")).click();
+		Select dist=new Select(driver.findElement(By.id("form:Districts")));
+		dist.selectByVisibleText("");
+		TimeUnit.SECONDS.sleep(10);
+		driver.findElement(By.id("form:fhname")).sendKeys("Sri");
+		driver.findElement(By.id("form.fhname")).click();
+		driver.findElement(By.id("form:address1")).sendKeys("74/5,KR Nagar,Kovilpatti");
+		driver.findElement(By.id("form.address1")).click();
+		TimeUnit.SECONDS.sleep(12);
+		Select dist1=new Select(driver.findElement(By.id("form:districts")));
+		dist1.selectByVisibleText(null);
+		TimeUnit.SECONDS.sleep(5);
+		Select taluk=new Select(driver.findElement(By.id("form:taluks")));
+		taluk.selectByVisibleText(null);
+		TimeUnit.SECONDS.sleep(5);
+		
+		
+	}
+
+}
+ 
