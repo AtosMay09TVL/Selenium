@@ -1,0 +1,67 @@
+package exercise;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Smartcard {
+	static WebDriver driver;
+
+	public static void main(String[] args)  throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\syntel\\eclipse-workspace\\Selenium_Training_Excersise\\src\\basic_commands\\driver\\chromedriver.exe");
+		driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://tnpds.gov.in");
+		TimeUnit.SECONDS.sleep(5);
+		driver.findElement(By.xpath("//*[@id=\"masterForm\"]/div[1]/div/div[2]")).click();
+		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/ul[1]/li[2]/a")).click();
+		driver.findElement(By.id("form:aname")).sendKeys("XYZ");
+		driver.findElement(By.id("form:aname")).submit();
+        driver.findElement(By.id("form:fhname")).sendKeys("Abc");
+		driver.findElement(By.id("form:fhname")).submit();
+		driver.findElement(By.id("form:address1")).sendKeys("886");
+		driver.findElement(By.id("form:address1")).submit();
+		driver.findElement(By.id("form:address2")).sendKeys("Madurai Road");
+		driver.findElement(By.id("form:address2")).submit();
+		driver.findElement(By.id("form:address3")).sendKeys("Thachanallur");
+		driver.findElement(By.id("form:address3")).submit();
+		Select district=new Select(driver.findElement(By.id("form:districts")));
+		district.selectByVisibleText("Tirunelveli");
+		TimeUnit.SECONDS.sleep(5);
+		Select taluk=new Select(driver.findElement(By.id("form:taluks")));
+		taluk.selectByValue("123");
+		TimeUnit.SECONDS.sleep(5);
+		Select village=new Select(driver.findElement(By.id("form:villages")));
+		village.selectByIndex(2);
+		TimeUnit.SECONDS.sleep(5);
+		driver.findElement(By.id("form:pin")).sendKeys("627358");
+		driver.findElement(By.id("form:pin")).submit();
+		driver.findElement(By.id("form:mobile")).sendKeys("9500317289");
+		driver.findElement(By.id("form:mobile")).submit();
+        driver.findElement(By.id("form:stdCode")).sendKeys("1234");
+		driver.findElement(By.id("form:stdCode")).submit();
+		driver.findElement(By.id("form:landLineNo")).sendKeys("1234567");
+		driver.findElement(By.id("form:landLineNo")).submit();
+		driver.findElement(By.id("form:mail")).sendKeys("abcdef@gmail.com");
+		driver.findElement(By.id("form:mail")).submit();
+		driver.findElement(By.xpath("//*[@id=\"form:addfamilymember\"]")).click();
+		TimeUnit.SECONDS.sleep(3);
+		WebElement dateWidget = driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]"));   
+		List<WebElement> columns = dateWidget.findElements(By.tagName("ab"));  
+        for (WebElement cell: columns){
+	            if (cell.getText().equals("11")){
+	                cell.findElement(By.linkText("12")).click();
+	                break; 
+	            }
+	     }
+		
+
+	}
+
+}
+
